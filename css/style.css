@@ -1,0 +1,1749 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  background-color: #f5f2ec;
+  margin: 0;
+  font-family: "Montserrat";
+  position: relative;
+}
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.loaded #preloader {
+  display: none;
+}
+
+.hidden-until-loaded {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.loaded .hidden-until-loaded {
+  visibility: visible;
+  opacity: 1;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+header {
+  width: 85%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 8fr;
+  padding: 20px 0;
+}
+
+header .hamburger {
+  display: none;
+}
+
+header .hamburger img {
+  width: 30px;
+}
+
+header .logo img {
+  width: 190px;
+}
+
+header .header-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+header .header-menu div {
+  font-weight: 600;
+  margin-left: 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .header-menu .language {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 50%;
+  overflow: hidden;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  background-color: transparent;
+  color: black;
+}
+
+.language span {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.lang-en {
+  top: 0;
+}
+
+.lang-vn {
+  top: -40px;
+}
+
+header .header-menu .support {
+  width: 250px;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid black;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+header .header-menu .support::after {
+  width: 0;
+  height: 40px;
+  background-color: black;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  border-radius: 30px;
+  content: "";
+  position: absolute;
+  transition: width 0.5s ease;
+}
+header .header-menu .support:hover{ color: white;}
+header .header-menu .support:hover::after {
+  width: 100%;
+}
+/* Sidebar nenu */
+.side-menu {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(2px);
+  transform: translateY(-120%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.side-menu .logo {
+  position: relative;
+}
+
+.side-menu .logo img:first-child {
+  width: 40%;
+  margin-left: 10%;
+}
+
+.side-menu .logo img:last-child {
+  width: 50px;
+  position: absolute;
+  top: 25%;
+  right: 10%;
+  cursor: pointer;
+}
+
+header .header-menu .tag, .side-menu .header-menu .tag {
+  position: relative;
+  /* padding: 0 3px; */
+}
+.side-menu .header-menu .tag::after{
+  content: "";
+  position: absolute;
+  background-color: white;
+  height: 2.5px;
+  width: 0;
+  left: 0;
+  bottom: 25px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+header .header-menu .tag::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  height: 2px;
+  width: 0;
+  left: 0;
+  bottom: -3px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+header .header-menu .tag:hover::after, .side-menu .header-menu .tag:hover::after {
+  width: 100%;
+}
+
+.side-menu .header-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.side-menu .header-menu div:nth-child(1),
+.side-menu .header-menu div:nth-child(2),
+.side-menu .header-menu div:nth-child(3) {
+  padding: 1.5rem 0;
+  font-size: 30px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.side-menu .header-menu .language {
+  width: 7vw;
+  height: 7vw;
+  border: 1px solid white;
+  border-radius: 50%;
+  font-size: 30px;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  position: relative;
+   overflow: hidden;
+  text-align: center;
+  line-height: 7vw;
+}
+
+.side-menu .header-menu .support {
+  width: 50%;
+  height: 7vw;
+  padding: 0 1rem;
+  border: 1px solid white;
+  border-radius: 50px;
+  font-size: 30px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1.5em;
+}
+
+.side-menu.open-menu {
+  transform: translateY(0);
+}
+
+.SliderSection {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.SliderSection .SliderContainer {
+  width: 100%;
+  height: 20rem;
+  background-color: black;
+  /* clip-path: path("M 0,50 L 10,40 L 40,100 L 50,120 L 50,10 L 130,0 L 1300,0 L 1400,10 L 1400,600 L 1300,630 L 1200,630 L 1109,620 L 1109,630 L 1100,640 L 50, 650 L 0, 640 Z"); */
+  clip-path: path("M 0,70 L 20,50 L 40,50 L 50,40 L 50,20 L 70,0 L 1380,0 L 1400, 20 L 1400,620 L 1350,630 L 630,1300 L 640,1350 L 640,1300 L 650,1200 L 10,650 L 0,640  Z "
+    );
+}
+
+.SliderSection img {
+  width: 100%;
+  height: 650px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.WhyUs {
+  width: 85%;
+  margin: 5rem auto;
+}
+
+.WhyUs .EachWhy {
+  position: relative;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.WhyUs .EachWhy::before,
+.ClassSection .ClassTitle::before,
+.Instructors .InstructorTitle::before,
+.ScheduleSection .ScheduleTitle::before {
+  content: "";
+  width: 100%;
+  height: 1.5px;
+  overflow-y: hidden;
+  background-color: #2e2e2e;
+  bottom: 21px;
+  position: absolute;
+  z-index: 1;
+}
+
+.WhyUs .EachWhy .icon-drop {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-size: cover;
+  right: 0;
+  top: 10px;
+}
+
+.WhyUs .EachWhy .toggleWhy {
+  font-size: 4.5rem;
+  font-weight: 300;
+  width: 100%;
+}
+
+.WhyUs .EachWhy .WhyUsContent,
+.WhyUs .EachWhy .WhyUsContent1 {
+  position: relative;
+  left: 45%;
+  top: -90px;
+  width: 40%;
+  margin-left: 10px;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.6s linear;
+}
+
+
+.WhyUsContent.open,
+.WhyUsContent1.open {
+  height: 500px !important;
+}
+
+/*
+.WhyUsContent, .WhyUsContent1 {
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  height: auto;
+  -webkit-transition: transform 0.4s ease, opacity 0.4s ease;
+  -moz-transition: transform 0.4s ease, opacity 0.4s ease;
+  -ms-transition: transform 0.4s ease, opacity 0.4s ease;
+  -o-transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.WhyUsContent.open, .WhyUsContent1.open {
+  transform: scaleY(1);
+  opacity: 1;
+}*/
+.WhyUsContent, .WhyUsContent1 {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.6s ease-in-out;
+  -webkit-transition: height 0.6s ease-in-out;
+  -moz-transition: height 0.6s ease-in-out;
+  -ms-transition: height 0.6s ease-in-out;
+  -o-transition: height 0.6s ease-in-out;
+}
+
+.WhyUs .EachWhy .WhyUsContent .TitleWhy,
+.WhyUs .EachWhy .WhyUsContent1 .TitleWhy {
+  font-weight: 600;
+  color: #2e2e2e;
+  font-size: 30px;
+}
+
+.WhyUs .EachWhy .WhyUsContent .ContentWhy,
+.WhyUs .EachWhy .WhyUsContent1 .ContentWhy {
+  font-size: 18px;
+  padding: 1rem 0;
+}
+
+.WhyUs .EachWhy .WhyUsContent .img-why,
+.WhyUs .EachWhy .WhyUsContent1 .img-why {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.WhyUs .EachWhy .WhyUsContent .img-why .part,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part {
+  background-image: url("../images/cfdc21df9da775bf8e681c586f37ddf6.webp");
+}
+
+.WhyUs .EachWhy .WhyUsContent .img-why .part-1,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-1 {
+  background-image: url("../images/view-pregnant-woman-doing-sport-home.webp");
+}
+
+.WhyUs .EachWhy .WhyUsContent .img-why .part-2,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-2 {
+  background-image: url("../images/yoga-group-classes-inside-gym.webp");
+}
+
+.WhyUs .EachWhy .WhyUsContent .img-why .part-3,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-3 {
+  background-image: url("../images/young-woman-practicing-yoga-home.webp");
+}
+
+.WhyUs .EachWhy .WhyUsContent .img-why .part,
+.WhyUs .EachWhy .WhyUsContent .img-why .part-1,
+.WhyUs .EachWhy .WhyUsContent .img-why .part-2,
+.WhyUs .EachWhy .WhyUsContent .img-why .part-3,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-1,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-2,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-3 {
+  width: 120px;
+  height: 220px;
+  background-size: 360px 220px;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  margin-right: 8px;
+  margin-bottom: 1rem;
+}
+
+.WhyUs .EachWhy .WhyUsContent .img-why .part.part1,
+.WhyUs .EachWhy .WhyUsContent .img-why .part-1.part1,
+.WhyUs .EachWhy .WhyUsContent .img-why .part-2.part1,
+.WhyUs .EachWhy .WhyUsContent .img-why .part-3.part1,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part.part1,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-1.part1,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-2.part1,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-3.part1 {
+  background-position: 0 0;
+}
+
+.WhyUs .EachWhy .WhyUsContent .img-why .part.part2,
+.WhyUs .EachWhy .WhyUsContent .img-why .part-1.part2,
+.WhyUs .EachWhy .WhyUsContent .img-why .part-2.part2,
+.WhyUs .EachWhy .WhyUsContent .img-why .part-3.part2,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part.part2,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-1.part2,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-2.part2,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-3.part2 {
+  background-position: -120px 0;
+}
+
+.WhyUs .EachWhy .WhyUsContent .img-why .part.part3,
+.WhyUs .EachWhy .WhyUsContent .img-why .part-1.part3,
+.WhyUs .EachWhy .WhyUsContent .img-why .part-2.part3,
+.WhyUs .EachWhy .WhyUsContent .img-why .part-3.part3,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part.part3,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-1.part3,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-2.part3,
+.WhyUs .EachWhy .WhyUsContent1 .img-why .part-3.part3 {
+  background-position: -240px 0;
+}
+
+.WhyUs .EachWhy .WhyUsContent .link,
+.WhyUs .EachWhy .WhyUsContent1 .link {
+  color: rgb(58, 58, 58);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.SectionBreak {
+  width: 100%;
+  position: relative;
+}
+
+.SectionBreak::before {
+  content: "";
+  position: absolute;
+  border-top: 4px dashed black;
+  width: 100%;
+  top: -3px;
+}
+
+.SectionBreak::after {
+  content: "";
+  position: absolute;
+  border-top: 4px dashed black;
+  width: 100%;
+  bottom: -3px;
+}
+
+.SectionBreak .BreakLine {
+  width: 100%;
+  padding: 0.5rem 0;
+  background-color: rgb(0, 0, 0);
+  overflow-x: hidden;
+  color: white;
+  font-size: 16px;
+}
+
+.SectionBreak .BreakLine .EachBreak .icon-break {
+  width: 18px;
+  margin: 0 20px;
+}
+
+.SectionBreak .BreakLine .MarqueeContent {
+  display: flex;
+  width: max-content;
+  animation: scrollLinear 30s linear infinite;
+  -webkit-animation: scrollLinear 80s linear infinite;
+}
+
+.SectionBreak .BreakLine .EachBreak {
+  display: flex;
+  align-items: center;
+  min-width: 100px;
+  transition: transform 2s linear;
+}
+
+@keyframes scrollLinear {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ClassSection,
+.Instructors {
+  width: 85%;
+  margin: 6rem auto;
+}
+
+.ClassSection .ClassTitle,
+.Instructors .InstructorTitle,
+.ScheduleSection .ScheduleTitle {
+  position: relative;
+}
+
+.ClassSection .ClassTitle div,
+.Instructors .InstructorTitle div,
+.ScheduleSection .ScheduleTitle div {
+  font-size: 4.5rem;
+  font-weight: 300;
+}
+
+.ClassSection .ClassTitle a,
+.Instructors .InstructorTitle a,
+.ScheduleSection .ScheduleTitle a {
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+}
+
+.ClassSection .AllClass {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  grid-template-rows: 280px 280px;
+}
+
+.ClassSection .AllClass .ImgClass1,
+.Instructors .AllInstructor .ImgIns1 {
+  grid-row: 1;
+  grid-column: 2/4;
+}
+
+.ClassSection .AllClass .ImgClass2 {
+  grid-row: 2;
+  grid-column: 3/5;
+}
+
+.ClassSection .AllClass .ImgClass1 img,
+.ClassSection .AllClass .ImgClass2 img {
+  height: 14rem;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.ClassSection .AllClass .EachClass {
+  background-color: black;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ClassSection .AllClass .EachClass div {
+  color: white;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: 0.02rem;
+}
+
+.ClassSection .AllClass .EachClass div:last-child {
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.ClassSection .AllClass .EachClass1 {
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.ClassSection .AllClass .EachClass1 img,
+.Instructors .AllInstructor .EachClass1 img {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 0.6rem;
+}
+
+.ClassSection .AllClass .EachClass1 div,
+.Instructors .AllInstructor .EachClass1 div {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.Studio {
+  width: 85%;
+  margin: 2rem auto;
+}
+
+.Studio .Studio-img {
+  height: 600px;
+  border-radius: 20px;
+  position: relative;
+  z-index: 0;
+}
+
+.Studio .Studio-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+}
+
+.Studio .Studio-img::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.Studio .Studio-img .StudioContent {
+  position: absolute;
+  color: white;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Studio .Studio-img .StudioContent .ContentTitle {
+  font-size: 75px;
+  font-weight: 400;
+  padding: 0 18%;
+  text-align: center;
+}
+
+.Studio .Studio-img .StudioContent .ContentTitle span {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.Studio .Studio-img .StudioContent .Content {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
+.Studio .Studio-img .StudioContent .Certificate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.Studio .Studio-img .StudioContent .Certificate .btnCer {
+  background-color: white;
+  padding: 10px 1rem;
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 15px;
+  border-radius: 30px;
+  border: 2px dashed black;
+}
+
+.Instructors .AllInstructor {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  grid-template-rows: 280px 280px;
+}
+
+.Instructors .AllInstructor .ImgIns1,
+.Instructors .AllInstructor .ImgIns2 {
+  position: relative;
+}
+
+.Instructors .AllInstructor .ImgIns1 .backdrop,
+.Instructors .AllInstructor .ImgIns2 .backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  border-radius: 20px;
+}
+
+.Instructors .AllInstructor .ImgIns1 .backdrop .Tag-Ins,
+.Instructors .AllInstructor .ImgIns2 .backdrop .Tag-Ins {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 45px;
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.Instructors .AllInstructor .ImgIns1 .backdrop .Tag-Ins img,
+.Instructors .AllInstructor .ImgIns2 .backdrop .Tag-Ins img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  margin: 0 0.7rem;
+}
+
+.Instructors .AllInstructor .ImgIns2 {
+  grid-row: 2;
+  grid-column: 1/3;
+}
+
+.Instructors .AllInstructor .ImgIns3 {
+  grid-row: 1/3;
+  grid-column: 4;
+}
+
+.Instructors .AllInstructor>div {
+  height: 100%;
+}
+
+.Instructors .AllInstructor div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.Instructors .AllInstructor .EachClass1 {
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.ScheduleSection {
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+}
+
+.ScheduleSection .Schedule {
+  border: 1px solid #858585;
+  border-radius: 20px;
+}
+
+.ScheduleSection .Schedule .HeaderSchedule {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  background-color: black;
+  color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  grid-auto-rows: 90px;
+}
+
+.ScheduleSection .Schedule .BodySchedule {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 12s0px;
+}
+
+#schedule-body {
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.day-header {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.day-header .dayOfWeek {
+  font-size: 14px;
+}
+
+.day-header .noDate {
+  font-size: 28px;
+}
+
+.class-item {
+  padding: 10px;
+  border: 1px solid #858585;
+  margin: 5px;
+  background: #e0f7fa;
+  font-size: 14px;
+}
+
+.schedule-cell {
+  width: 100%;
+  height: 120px;
+  border: 1px solid #858585;
+  box-sizing: border-box;
+  padding: 8px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.schedule-cell:nth-child(19) {
+  border-bottom-left-radius: 20px;
+}
+
+/* Tổng thể bộ lọc */
+.Schedule-Filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Filter-Week,
+.EachSelect {
+  display: inline-block;
+  margin: 10px;
+  vertical-align: middle;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Bộ lọc tuần */
+.Filter-Week button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  padding: 8px 12px;
+  margin: 0 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.Filter-Week button:hover {
+  background-color: #dcdcdc;
+}
+
+#week-range {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* EachSelect dropdown */
+.EachSelect {
+  position: relative;
+  width: 180px;
+}
+
+.selectedValueClass,
+.selectedValueStyle {
+  display: block;
+  padding: 10px 14px;
+  background-color: #f5f2ec;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 30px;
+  font-size: 18px;
+}
+
+.DropList {
+  display: none;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.EachSelect:hover .DropList {
+  display: block;
+}
+
+.DropList .option {
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.DropList .option:hover {
+  background-color: #f0f0f0;
+}
+
+.schedule-cell:nth-child(24) {
+  border-bottom-right-radius: 20px;
+}
+
+.schedule-cell .schedule-time {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.schedule-cell .schedule-subject {
+  font-size: 24px;
+  font-weight: 600;
+  padding: 0.5rem 0;
+}
+
+.schedule-cell .btn-book {
+  width: 80%;
+  border-radius: 40px;
+  height: 40px;
+  border: 1px solid #858585;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.SectionBook {
+  width: 85%;
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SectionBook button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid #858585;
+  border-radius: 40px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.SectionBook button::after{
+    width: 0;
+    height: 50px;
+    border-radius: 40px;
+    background-color: black;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 0.4s ease;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
+}
+.SectionBook button:hover::after{
+   width: 100%;
+}
+.SectionBook :hover div {
+  color: white;
+}
+.SectionBook button img {
+  width: 20px;
+  margin-left: 20px;
+}
+
+.SectionBook button div {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  font-family: "Montserrat";
+}
+
+footer {
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+
+footer .TopFooter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding-bottom: 4rem;
+}
+
+footer .TopFooter img {
+  width: 50%;
+}
+
+footer .TopFooter .Link,
+footer .TopFooter .NewLetter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  padding: 0;
+}
+
+footer .TopFooter .Link .LinkTile,
+footer .TopFooter .NewLetter .LinKTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+footer .TopFooter .Link a {
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 1.2rem;
+}
+
+footer .TopFooter .NewLetter .LinkContent {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 1.2rem 0;
+}
+
+footer .TopFooter .NewLetter .InputMail {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #858585;
+  border-radius: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .TopFooter .NewLetter .InputMail input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-left: 1rem;
+}
+
+footer .TopFooter .NewLetter .InputMail img {
+  width: 22px;
+  height: 5px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+footer .BottomFooter {
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #858585;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+
+footer .BottomFooter .LinkBottom a {
+  color: black;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+footer .BottomFooter .LinkBottomR {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+footer .BottomFooter .LinkBottomR a {
+  color: black;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+footer .BottomFooter .copyright {
+  color: black;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.FromBookClass {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  /* backdrop-filter: blur(1px); */
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.FromBookClass.openBook {
+  display: flex;
+}
+
+.FromBookClass .Form {
+  width: 30%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  height: 70%;
+  border-radius: 20px;
+  background-color: #f5f2ec;
+  padding: 3rem 2.5rem;
+  border: 1px solid #2e2e2e;
+}
+
+.FromBookClass .Form .TitleForm {
+  position: relative;
+  width: 95%;
+  border-bottom: 1px solid #979797;
+  font-size: 40px;
+  font-weight: 200;
+}
+
+.FromBookClass .Form .TitleForm img {
+  width: 40px;
+  height: 40px;
+  right: 5px;
+  bottom: 5px;
+  position: absolute;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.FromBookClass .Form .EachInput {
+  position: relative;
+}
+
+.FromBookClass .Form .EachInput label {
+  position: absolute;
+  top: -0.5rem;
+  left: 1.5rem;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #f5f1ea;
+  padding: 0 0.3rem;
+}
+
+.FromBookClass .Form .EachInput {
+  width: 90%;
+}
+
+.FromBookClass .Form .EachInput,
+.FromBookClass .Form .EachSelect {
+  display: flex;
+  /* grid-template-columns: 1fr;
+    */
+  flex-direction: column;
+  padding: 0.5rem;
+  align-items: start;
+  /*justify-content: space-around;
+   */
+  border-radius: 30px;
+  height: 25px;
+  border: 1px solid #2e2e2e;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.FromBookClass .Form .EachInput img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  position: absolute;
+  right: 20px;
+  top: 30%;
+  display: none;
+}
+
+.FromBookClass .Form .EachInput input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  padding: 0 0.5rem;
+  padding-left: 1rem;
+}
+
+.FromBookClass .Form .EachInput input::placeholder {
+  color: gray;
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Montserrat";
+}
+
+.FromBookClass .Form .EachInput input:focus {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Montserrat";
+}
+
+.FromBookClass .Form .EachSelect {
+  font-size: 16px;
+  font-weight: 700;
+  width: 85%;
+  padding-left: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.FromBookClass .Form .EachSelect img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  position: absolute;
+  right: 20px;
+  top: 30%;
+}
+
+.FromBookClass .Form .EachSelect .DropList,
+.FromBookClass .Form .EachSelect .DropList1 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: #f5f2ec;
+  border: 1px solid #808080;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+/* .FromBookClass .Form .EachSelect .DropList div {
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+   justify-content: center;
+ } */
+.FromBookClass .Form .EachSelect .DropList .option,
+.FromBookClass .Form .EachSelect .DropList1 .option {
+  padding: 0.2rem;
+  margin-top: 0.3rem;
+  padding-left: 1rem;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.FromBookClass .Form .EachSelect .DropList .option:hover,
+.FromBookClass .Form .EachSelect .DropList1 .option:hover {
+  background-color: #e6e6e1;
+  border-radius: 5px;
+}
+
+.FromBookClass .Form .BtnBook {
+  text-align: center;
+  border: 1px solid #2e2e2e;
+  font-size: 16px;
+  font-weight: 700;
+  width: 90%;
+  height: 25px;
+  border-radius: 30px;
+}
+
+.FromBookClass .Form .accept {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  width: 90%;
+  border-top: 1px solid #979797;
+  margin-top: 10px;
+}
+
+.FromBookClass .Form .accept .allow {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 1rem 0;
+}
+
+.FromBookClass .Form .accept .BtnSubmit {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #2e2e2e;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1480px) {
+  .WhyUs .EachWhy .toggleWhy {
+    font-size: 4rem;
+    font-weight: 300;
+    width: 40%;
+  }
+
+  .ClassSection .ClassTitle div,
+  .Instructors .InstructorTitle div,
+  .ScheduleSection .ScheduleTitle div {
+    font-size: 4rem;
+    font-weight: 300;
+  }
+
+}
+
+@media (min-width: 801px) and (max-width: 1200px) {
+  .WhyUs .EachWhy .toggleWhy {
+    font-size: 4rem;
+    font-weight: 300;
+    width: 60%;
+  }
+
+  .WhyUs .EachWhy .WhyUsContent,
+  .WhyUs .EachWhy .WhyUsContent1 {
+    left: 0;
+    top: 0;
+    width: 80%;
+  }
+
+  .WhyUs .EachWhy .WhyUsContent.open,
+  .WhyUs .EachWhy .WhyUsContent1.open {
+    max-height: 1000px !important;
+  }
+
+  .ClassSection .ClassTitle div,
+  .Instructors .InstructorTitle div,
+  .ScheduleSection .ScheduleTitle div {
+    font-size: 3.5rem;
+    font-weight: 300;
+  }
+
+  header .hamburger {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  header .header-menu {
+    display: none;
+  }
+
+  .WhyUs .EachWhy::before,
+  .ClassSection .ClassTitle::before,
+  .Instructors .InstructorTitle::before,
+  .ScheduleSection .ScheduleTitle::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1.5px;
+    background-color: #2e2e2e;
+    bottom: 18px;
+    z-index: 1;
+  }
+
+  .ClassSection .AllClass, .Instructors .AllInstructor {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr minmax(0, 300px);
+  }
+
+  /* .Instructors .AllInstructor .EachClass1 {
+  height: 280px;
+} */
+
+  .ClassSection .AllClass>*,
+  .Instructors .AllInstructor div:first-child, .Instructors .AllInstructor .ImgIns1, .Instructors .AllInstructor .ImgIns3, .Instructors .AllInstructor .ImgIns2 {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  .Instructors .AllInstructor .EachClass1 {
+    grid-column: 1/3;
+    margin: auto;
+  }
+
+  .Studio .Studio-img .StudioContent .ContentTitle {
+    font-size: 60px;
+    padding: 0 10% !important;
+  }
+
+  footer .TopFooter .Link .LinkTile,
+  footer .TopFooter .NewLetter .LinKTitle {
+    font-size: 0.8rem;
+  }
+
+  footer .TopFooter .Link a {
+    font-size: 0.6rem;
+  }
+
+  footer .TopFooter .NewLetter .LinkContent {
+    font-size: 0.8rem;
+  }
+
+  footer .BottomFooter {
+    grid-template-columns: 1fr;
+  }
+
+
+  footer .BottomFooter .LinkBottomR, footer .BottomFooter .LinkBottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+  }
+
+  footer .BottomFooter .copyright {
+    grid-row: 3;
+    padding: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .side-menu .header-menu .language {
+    font-size: 1.1rem;
+  }
+
+  .side-menu .header-menu .support {
+    font-size: 1.1rem;
+  }
+
+  .WhyUs .EachWhy .toggleWhy {
+    font-size: 4rem;
+    font-weight: 300;
+    width: 60%;
+  }
+
+  .WhyUs .EachWhy .WhyUsContent,
+  .WhyUs .EachWhy .WhyUsContent1 {
+    left: 0;
+    top: 0;
+    width: 80%;
+  }
+
+  .WhyUs .EachWhy .WhyUsContent.open,
+  .WhyUs .EachWhy .WhyUsContent1.open {
+    max-height: 1000px !important;
+  }
+
+  .ClassSection .AllClass,
+  .Instructors .AllInstructor {
+    grid-template-columns: 1fr;
+    grid-template-rows: 280px;
+  }
+
+  .ClassSection .AllClass {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+  }
+
+  .Instructors .AllInstructor .EachClass1 {
+    height: 280px;
+  }
+
+  .ClassSection .AllClass>*,
+  .Instructors .AllInstructor>* {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  /* .Instructors .AllInstructor .ImgIns3 {
+  grid-row: 3;
+  height: 300px;
+  object-fit: ;
+} */
+  .ClassSection .ClassTitle a,
+  .Instructors .InstructorTitle a,
+  .ScheduleSection .ScheduleTitle a {
+    font-size: 16px;
+  }
+
+  .ClassSection .ClassTitle div,
+  .Instructors .InstructorTitle div,
+  .ScheduleSection .ScheduleTitle div {
+    font-size: 2.5rem;
+    font-weight: 300;
+  }
+
+  .WhyUs .EachWhy::before,
+  .ClassSection .ClassTitle::before,
+  .Instructors .InstructorTitle::before,
+  .ScheduleSection .ScheduleTitle::before {
+    height: 1.5px;
+
+    bottom: -10px;
+  }
+
+  header .hamburger {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  header .header-menu {
+    display: none;
+  }
+
+  .WhyUs .EachWhy .toggleWhy {
+    font-size: 3rem;
+    font-weight: 300;
+    width: 60%;
+  }
+
+  .WhyUs .EachWhy::before,
+  .ClassSection .ClassTitle::before,
+  .Instructors .InstructorTitle::before,
+  .ScheduleSection .ScheduleTitle::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1.5px;
+    background-color: #2e2e2e;
+    bottom: 11px;
+    z-index: 1;
+  }
+
+  .Studio .Studio-img .StudioContent .ContentTitle {
+    font-size: 50px;
+    font-weight: 400;
+    padding: 0 5% !important;
+    text-align: center;
+  }
+
+  .Studio .Studio-img .StudioContent .Content {
+    font-size: 13px;
+  }
+
+  .Studio .Studio-img .StudioContent .Certificate .btnCer {
+    font-size: 10px;
+  }
+
+  footer .TopFooter {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-bottom: 2rem;
+  }
+
+  footer .TopFooter img {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  footer .TopFooter .Link,
+  footer .TopFooter .NewLetter {
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  footer .BottomFooter {
+    grid-template-columns: 1fr;
+  }
+
+
+  footer .BottomFooter .LinkBottomR, footer .BottomFooter .LinkBottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+  }
+
+  footer .BottomFooter .copyright {
+    grid-row: 3;
+    padding: 1rem 0;
+  }
+
+  #schedule-body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .HeaderSchedule {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* <!-- HTML !-->
+<button class="button-48" role="button"><span class="text">Button 48</span></button> */
+
+/* CSS mẫu slide từ trái qua */
+.button-48 {
+  appearance: none;
+  background-color: #ffffff;
+  border-width: 0;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Clarkson, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1em;
+  margin: 0;
+  opacity: 1;
+  outline: 0;
+  padding: 1.5em 2.2em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-rendering: geometricprecision;
+  text-transform: uppercase;
+  transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1),
+    background-color 100ms cubic-bezier(0.694, 0, 0.335, 1),
+    color 100ms cubic-bezier(0.694, 0, 0.335, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.button-48:before {
+  animation: opacityFallbackOut 0.5s step-end forwards;
+  backface-visibility: hidden;
+  background-color: #ebebeb;
+  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateZ(0);
+  transition: clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+    -webkit-clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: 100%;
+}
+
+.button-48:hover:before {
+  animation: opacityFallbackIn 0s step-start forwards;
+  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+}
+
+.button-48:after {
+  background-color: #ffffff;
+}
+
+.button-48 span {
+  z-index: 1;
+  position: relative;
+}
+
+/*
+<!-- HTML !-->
+<button class="button-57" role="button"><span class="text">Button 57</span><span>Alternate text</span></button>
+*/
+/* CSS mẫu slideUp lên 1 màn mới*/
+.button-57 {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #18181a;
+  color: #18181a;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 15px;
+  padding: 18px 18px 17px;
+  text-decoration: none;
+  cursor: pointer;
+  background: #fff;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-57 span:first-child {
+  position: relative;
+  transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 10;
+}
+
+.button-57 span:last-child {
+  color: white;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 100;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translateY(225%) translateX(-50%);
+  height: 14px;
+  line-height: 13px;
+}
+
+.button-57:after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  transform-origin: bottom center;
+  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  transform: skewY(9.3deg) scaleY(0);
+  z-index: 50;
+}
+
+.button-57:hover:after {
+  transform-origin: bottom center;
+  transform: skewY(9.3deg) scaleY(2);
+}
+
+.button-57:hover span:last-child {
+  transform: translateX(-50%) translateY(-100%);
+  opacity: 1;
+  transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+}
