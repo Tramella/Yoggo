@@ -62,21 +62,6 @@ Welcome to the **Yoga Studio Landing Page** — a modern, responsive website des
 
 ---
 
-## 📂 Project Structure
-
-project/
-├── index.html
-├── css/
-│ └── style.css
-├── js/
-│ ├── script.js
-│ └── owl.carousel.min.js
-├── images/
-│ └── ... (yoga classes, instructors, etc.)
-└── README.md
-
----
-
 ## 📦 Getting Started (Development)
 
 1. Clone the repository:
