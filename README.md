@@ -82,33 +82,13 @@ project/
 1. Clone the repository:
    ```bash
    git clone https://github.com/Tramella/Yoggo.git
-Open index.html in your browser.
 
-No build step required. Works out of the box.
-
-📤 Deployment
-This project is deployed on Render.com as a Static Site.
-
-Deploy your own:
-
-Push your code to GitHub
-
-Go to Render → New → Static Site
-
-Connect your GitHub repo
-
-Set:
-
-Build command: (leave blank)
-
-Publish directory: .
-
-Hit “Create Static Site”
+2.Open index.html in your browser.
 
 📩 Contact
 Feel free to reach out for feedback, suggestions, or collaboration:
 
-Email: tramella@gmail.com
+Email: trantramella@gmail.com
 
 🧘 Final Note
 This landing page aims to deliver a calming, engaging, and informative online experience for both new and existing yoga practitioners. Whether you're a beginner or an advanced yogi, this site provides all the essentials to get started with our studio.
